@@ -1,2 +1,2 @@
 # ZTNA-Implementation
-This project demonstrates a Zero Trust Network Access (ZTNA) model where users and devices are continuously verified before accessing secure resources.
+Designed and implemented a Zero Trust Network Access (ZTNA) architecture using Twingate, securing a private Nginx web application on Ubuntu with HTTPS encryption and controlled access via identity-based authentication, eliminating the need for traditional VPN.
