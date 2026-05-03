@@ -3,7 +3,7 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 
 ---
 
-## 🧠 Architecture
+## 🏗️ Architecture
 - **Ubuntu Server** – Hosts the private web application  
 - **Nginx** – Web server configured with HTTPS  
 - **Twingate Connector** – Secure outbound tunnel from private network  
