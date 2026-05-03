@@ -8,7 +8,37 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 - **Nginx** – Web server configured with HTTPS  
 - **Twingate Connector** – Secure outbound tunnel from private network  
 - **Twingate Cloud** – Identity-based access control  
-- **Client Device** – Access via Twingate client application  
+- **Client Device** – Access via Twingate client application
+
+-               ┌──────────────────────────────┐
+                │      User Device             │
+                │  (Twingate Client Installed) │
+                └─────────────┬────────────────┘
+                              │
+                              ▼
+                ┌──────────────────────────────┐
+                │      Twingate Cloud          │
+                │  (Auth + Access Control)     │
+                └─────────────┬────────────────┘
+                              │
+                 Encrypted Outbound Tunnel (TLS)
+                              │
+                              ▼
+        ┌────────────────────────────────────────────┐
+        │         Private Network (Ubuntu)           │
+        │                                            │
+        │   ┌────────────────────────────────────┐   │
+        │   │     Twingate Connector             │   │
+        │   │ (Secure Tunnel Endpoint)           │   │
+        │   └─────────────┬──────────────────────┘   │
+        │                 │                          │
+        │                 ▼                          │
+        │   ┌────────────────────────────────────┐   │
+        │   │     Nginx Web Server               │   │
+        │   │  (HTTPS - Private Resource)        │   │
+        │   └────────────────────────────────────┘   │
+        │                                            │
+        └────────────────────────────────────────────┘
 
 ---
 
