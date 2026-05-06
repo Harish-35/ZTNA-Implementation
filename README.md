@@ -60,7 +60,4 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 #### 1.4 Network Configuration (Private IP Setup)
 - Verified network interface details:
 
- ```bash
-  sudo apt update && sudo apt upgrade -y
-
 - asdfghjkl
