@@ -19,6 +19,15 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 ##  Technologies Used
 - Ubuntu Server  
 - Nginx  
-- OpenSSL (Self-Signed Certificate)  
-- Twingate (ZTNA Platform)  
+- OpenSSL (Self-Signed SSL Certificate)  
+- Twingate (ZTNA Platform – including Connector & Client)  
 - Networking (Private IP addressing)
+  
+- Ubuntu Server  
+- Nginx  
+- OpenSSL (Self-Signed SSL Certificate)  
+- Twingate (Zero Trust Network Access Platform)  
+- Twingate Connector  
+- Twingate Client  
+- HTTPS / TLS  
+- Networking (Private IP Addressing)  
