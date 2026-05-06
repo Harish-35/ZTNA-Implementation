@@ -58,7 +58,6 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 - Ensured system is up-to-date before installing any services
 
 #### 1.4 Network Configuration (Private IP Setup)
-
 - Verified network interface details:
 
  ```bash
