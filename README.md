@@ -51,6 +51,6 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 
 #### 1.3 System Update & Upgrade
 - Updated package list and installed latest security updates:
-&nbsp;
+<br>
   ```bash
   sudo apt update && sudo apt upgrade -y
