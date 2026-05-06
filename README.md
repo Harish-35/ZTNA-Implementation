@@ -55,6 +55,10 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
   ```bash
   sudo apt update && sudo apt upgrade -y
 
+  Identified private IP address (e.g., 192.168.x.x or 10.x.x.x)
+Ensured the VM is part of a private/internal network
+Used Bridged Adapter (or NAT with port forwarding) depending on setup
+
 - Ensured system is up-to-date before installing any services
 
 #### 1.4 Network Configuration (Private IP Setup)
