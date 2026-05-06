@@ -25,4 +25,29 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 - Twingate Connector  
 - Twingate Client  
 - HTTPS / TLS  
-- Networking (Private IP Addressing)  
+- Networking (Private IP Addressing)
+
+##  Implementation Steps
+
+### 1. Ubuntu Server Setup
+
+#### 1.1 Virtual Environment Setup
+- Installed VirtualBox on host machine to create an isolated lab environment  
+- Created a new Virtual Machine with the following configuration:
+  - OS: Ubuntu (64-bit)
+  - RAM: 2 GB (minimum)
+  - Storage: 20 GB (dynamically allocated)
+  - Network Adapter: NAT / Bridged Adapter (for internet + local access)
+
+#### 1.2 Ubuntu Server Installation
+- Downloaded Ubuntu Server ISO from official website  
+- Mounted ISO in VirtualBox and started the VM  
+- Completed installation with:
+  - Username and password setup  
+  - Enabled OpenSSH (optional for remote access)  
+- Successfully booted into Ubuntu terminal after installation  
+
+#### 1.3 System Update & Upgrade
+- Updated package list and installed latest security updates:
+  ```bash
+  sudo apt update && sudo apt upgrade -y
