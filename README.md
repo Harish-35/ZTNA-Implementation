@@ -64,6 +64,8 @@ Verified network interface details:
 ```bash
 ip addr show
 
+<br>
+
 - Identified private IP address (e.g., 192.168.x.x or 10.x.x.x)
 - Ensured the VM is part of a private/internal network
 - Used Bridged Adapter (or NAT with port forwarding) depending on setup
