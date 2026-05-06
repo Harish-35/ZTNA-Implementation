@@ -61,4 +61,5 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 - Verified network interface details:
 ```bash
 show wft
+
 - asdfghjkl
