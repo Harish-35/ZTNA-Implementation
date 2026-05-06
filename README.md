@@ -27,6 +27,8 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 - HTTPS / TLS  
 - Networking (Private IP Addressing)
 
+---
+
 ##  Implementation Steps
 
 ### 1. Ubuntu Server Setup
@@ -49,6 +51,6 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 
 #### 1.3 System Update & Upgrade
 - Updated package list and installed latest security updates:
-  ```bash
 #
+  ```bash
   sudo apt update && sudo apt upgrade -y
