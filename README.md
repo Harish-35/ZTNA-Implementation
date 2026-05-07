@@ -54,10 +54,11 @@ Updated package list and installed latest security updates:
 
   ```bash
   sudo apt update && sudo apt upgrade -y
+  ```
 
 - Ensured system is up-to-date before installing any services
 
-#### 1.5 Network Connectivity Testing
+#### 1.4 Network Connectivity Testing
 
 Verified network interface details:
 
