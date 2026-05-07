@@ -84,8 +84,8 @@ ping google.com
 ```
 
 #### 1.6 Security Considerations
-Ensured the Ubuntu server is not exposed to the public internet
-Restricted access to internal/private network only
+- Ensured the Ubuntu server is not exposed to the public internet
+- Restricted access to internal/private network only
 
 (Optional) Configured firewall using UFW:
 
@@ -95,3 +95,7 @@ sudo ufw enable
 ```bash
 sudo ufw allow OpenSSH
 ```
+
+#### 1.7 Final Validation
+- Confirmed system readiness for hosting applications
+- Verified stable network, updated packages, and secure configuration
