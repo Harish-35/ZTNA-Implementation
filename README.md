@@ -63,4 +63,4 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 ```bash
 show wft
 
--  asdfghjkl
+-  Ensured system is up-to-date before installing any services
