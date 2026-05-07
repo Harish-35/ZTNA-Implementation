@@ -50,17 +50,47 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 - Successfully booted into Ubuntu terminal after installation  
 
 #### 1.3 System Update & Upgrade
-- Updated package list and installed latest security updates:
+Updated package list and installed latest security updates:
 
   ```bash
   sudo apt update && sudo apt upgrade -y
 
 - Ensured system is up-to-date before installing any services
 
-#### 1.4 Network Configuration (Private IP Setup)
-- Verified network interface details:
+#### 1.5 Network Connectivity Testing
+
+Verified network interface details:
 
 ```bash
-show wft
+ip addr show
 ```
--  Ensured system is up-to-date before installing any services
+- Identified private IP address (e.g., 192.168.x.x or 10.x.x.x)
+- Ensured the VM is part of a private/internal network
+- Used Bridged Adapter (or NAT with port forwarding) depending on setup
+
+ #### 1.5 Network Connectivity Testing
+
+Verified internet connectivity:
+
+```bash
+ping 8.8.8.8
+```
+
+Verified DNS resolution:
+
+```bash
+ping google.com
+```
+
+#### 1.6 Security Considerations
+Ensured the Ubuntu server is not exposed to the public internet
+Restricted access to internal/private network only
+
+(Optional) Configured firewall using UFW:
+
+```bash
+sudo ufw enable
+```
+```bash
+sudo ufw allow OpenSSH
+```
