@@ -800,11 +800,13 @@ A new resource entry was created for the Ubuntu-hosted Nginx application.
 Example configuration:
 
 <p>
-### Field	                 Value
+<div>
+Field	                 Value
 Resource Name	------>      ZTNA-Web-Portal <br>
 Address	      ------>      192.168.1.10    <br>
 Protocol	    ------>      HTTPS           <br>
 Port	        ------>      443             <br>
+</div>
 </p>
 Configuration details:
 
