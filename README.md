@@ -742,3 +742,141 @@ Architecture flow:
 - Connector forwards traffic internally to the Nginx web server
 
 This enabled secure, identity-based access to the private web application without exposing the Ubuntu server to the public internet.
+
+---
+
+##  6. Resource Configuration
+
+### 6.1 Overview
+After successfully deploying the Twingate Connector, the private Nginx web server hosted on Ubuntu was configured as a protected resource within the Twingate Zero Trust environment.
+
+This step enabled authenticated users to securely access the internal application through Twingate without exposing the server directly to the public internet.
+
+### 6.2 Purpose of Resource Configuration
+The resource configuration process was used to:
+- Register the internal Ubuntu-hosted web application within Twingate
+- Define which internal service should be protected
+- Enable secure application-level access
+- Associate the resource with the deployed connector
+
+The private Nginx server became the protected internal resource within the ZTNA architecture.
+
+### 6.3 Identifying the Private Resource
+The Ubuntu server hosting the Nginx application was identified using its internal/private IP address.
+
+The IP address was verified using:
+
+```bash
+ip addr show
+```
+Example:
+
+```bash
+192.168.1.10
+```
+This private IP address represented:
+
+- The internal application endpoint
+- The protected resource accessible through Twingate
+
+### 6.4 Accessing the Twingate Admin Console
+
+The Twingate Admin Console was used to configure protected resources.
+
+Navigation path:
+
+```bash
+Resources → Add Resource
+```
+
+This section allows administrators to:
+
+- Define internal applications
+- Configure secure access policies
+- Associate resources with connectors
+
+### 6.5 Creating the Private Resource
+
+A new resource entry was created for the Ubuntu-hosted Nginx application.
+
+Example configuration:
+
+Field	                  Value
+Resource Name	      ZTNA-Web-Portal
+Address	            192.168.1.10
+Protocol	          HTTPS
+Port	              443
+
+Configuration details:
+
+- Resource Name identifies the internal application
+- Address points to the Ubuntu server’s private IP
+- HTTPS protocol ensures encrypted communication
+- Port 443 corresponds to the secure Nginx service
+
+### 6.6 Mapping Resource to Connector
+
+The configured resource was linked to the previously deployed Twingate Connector.
+
+Connector mapping process:
+
+- Selected the Remote Network associated with the Ubuntu environment
+- Assigned the connector responsible for internal traffic forwarding
+
+This mapping ensured:
+
+- Twingate traffic was routed correctly
+- Requests reached the internal Nginx server securely
+- The application remained accessible only through the connector
+
+### 6.7 Resource Access Workflow
+
+Once configured, the access flow operated as follows:
+
+1. User initiates connection through Twingate Client
+2. Twingate Cloud validates user identity and access permissions
+3. Secure tunnel traffic is forwarded to the mapped connector
+4. Twingate Connector routes traffic internally to:
+
+```bash
+https://192.168.1.10
+```
+5. Nginx server responds with the hosted ZTNA portal page
+
+This process ensured application-level secure access without exposing the server publicly.
+
+### 6.8 Validation & Testing
+
+Resource functionality was validated by:
+
+- Connecting through Twingate Client
+- Accessing the private application securely
+- Verifying successful communication with the Nginx server
+
+Validation checks included:
+
+- Successful loading of HTTPS web page
+- Correct routing through Twingate Connector
+- No direct public access to the server
+
+### 6.9 Security Benefits
+
+Resource configuration provided several security advantages:
+
+- Internal applications remained hidden from public internet
+- Access was controlled using identity-based policies
+- No inbound ports required public exposure
+- Communication occurred through encrypted tunnels only
+- Reduced attack surface compared to traditional VPN solutions
+
+### 6.10 Role in Zero Trust Architecture
+
+The resource configuration stage connected the private web application to the Zero Trust access framework.
+
+This completed the secure application exposure process by:
+
+- Defining the protected application
+- Linking the application to the secure connector
+- Enabling authenticated user access through Twingate
+
+The Ubuntu-hosted Nginx server was now securely accessible as a protected Zero Trust resource.4
