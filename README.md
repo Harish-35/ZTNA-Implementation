@@ -302,11 +302,13 @@ During certificate generation, certificate details were configured:
 
 Example:
 
+```bash
 Country Name: IN
 State: Tamil Nadu
 Locality: Chennai
 Organization Name: ZTNA Lab
 Common Name: 192.168.1.10
+```
 
 The Common Name (CN) was set to the Ubuntu server’s private IP address used to access the application.
 
