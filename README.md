@@ -32,7 +32,7 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
 
 ### 1. Ubuntu Server Setup
 
-#### 1.1 Virtual Environment Setup
+### 1.1 Virtual Environment Setup
 - Installed VirtualBox on host machine to create an isolated lab environment  
 - Created a new Virtual Machine with the following configuration:
   - OS: Ubuntu (64-bit)
@@ -40,7 +40,7 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
   - Storage: 20 GB (dynamically allocated)
   - Network Adapter: NAT / Bridged Adapter (for internet + local access)
 
-#### 1.2 Ubuntu Server Installation
+### 1.2 Ubuntu Server Installation
 - Downloaded Ubuntu Server ISO from official website  
 - Mounted ISO in VirtualBox and started the VM  
 - Completed installation with:
@@ -48,7 +48,7 @@ Designed and implemented a Zero Trust Network Access (ZTNA) architecture using T
   - Enabled OpenSSH (optional for remote access)  
 - Successfully booted into Ubuntu terminal after installation  
 
-#### 1.3 System Update & Upgrade
+### 1.3 System Update & Upgrade
 Updated package list and installed latest security updates:
 
   ```bash
@@ -57,7 +57,7 @@ Updated package list and installed latest security updates:
 
 - Ensured system is up-to-date before installing any services
 
-#### 1.4 Network Connectivity Testing
+### 1.4 Network Connectivity Testing
 
 Verified network interface details:
 
@@ -68,7 +68,7 @@ ip addr show
 - Ensured the VM is part of a private/internal network
 - Used Bridged Adapter (or NAT with port forwarding) depending on setup
 
- #### 1.5 Network Connectivity Testing
+ ### 1.5 Network Connectivity Testing
 
 Verified internet connectivity:
 
@@ -82,7 +82,7 @@ Verified DNS resolution:
 ping google.com
 ```
 
-#### 1.6 Security Considerations
+### 1.6 Security Considerations
 - Ensured the Ubuntu server is not exposed to the public internet
 - Restricted access to internal/private network only
 
@@ -95,7 +95,7 @@ sudo ufw enable
 sudo ufw allow OpenSSH
 ```
 
-#### 1.7 Final Validation
+### 1.7 Final Validation
 - Confirmed system readiness for hosting applications
 - Verified stable network, updated packages, and secure configuration
 
@@ -204,7 +204,7 @@ Example:
 This page acted as the private application protected by the ZTNA platform.
 
 
-## 2.6 Configuring Firewall Rules
+### 2.6 Configuring Firewall Rules
 
 Firewall rules were configured to allow HTTP traffic for internal communication.
 
