@@ -564,3 +564,181 @@ In later stages:
 - Direct public access remained blocked
 
 This completed the application layer of the ZTNA implementation.
+
+---
+
+##  5. Twingate Setup
+
+### 5.1 Overview
+To implement Zero Trust Network Access (ZTNA), the Twingate platform was configured to securely connect authenticated users to the private Nginx web application hosted on the Ubuntu server.
+
+Twingate was used to:
+- Create a Zero Trust access environment
+- Securely expose internal resources without public internet exposure
+- Establish encrypted outbound tunnels using Twingate Connector
+- Enforce identity-based access control
+
+---
+
+### 5.2 Creating a Twingate Account
+A Twingate administrative account was created using the official platform:
+
+```text
+https://www.twingate.com
+```
+
+After registration:
+
+- A new Twingate tenant/network environment was initialized
+- Administrative dashboard access was configured
+
+### 5.3 Creating a Twingate Network
+
+Inside the Twingate Admin Console:
+
+- A new network environment was created for the ZTNA lab
+
+Example:
+
+```bash
+ZTNA-Lab-Network
+```
+
+This network acted as the centralized Zero Trust environment managing:
+
+- Connectors
+- Resources
+- User access policies
+- Secure tunnels
+
+### 5.4 Configuring the Remote Network
+
+A Remote Network was configured to represent the internal/private Ubuntu environment where the Nginx application was hosted.
+
+Configuration steps:
+
+Navigated to:
+
+```bash
+Network → Remote Networks
+```
+
+- Created a new Remote Network
+- Assigned it to the Ubuntu private network
+
+This allowed Twingate to securely communicate with internal resources.
+
+### 5.5 Deploying the Twingate Connector
+
+The Twingate Connector was deployed inside the Ubuntu environment to establish a secure outbound tunnel between the private network and the Twingate cloud platform.
+
+##### Installing Docker
+
+Docker was installed to run the Twingate Connector container:
+
+```bash
+sudo apt update
+sudo apt install docker.io -y
+```
+
+Docker service was enabled and started:
+
+```bash
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
+### 5.6 Connector Deployment
+
+Inside the Twingate Admin Console:
+
+- Generated Connector deployment tokens
+- Selected Docker-based deployment method
+
+The provided Docker command was executed on the Ubuntu server:
+
+```bash
+docker run -d \
+--name twingate-connector \
+--restart unless-stopped \
+-v /var/lib/twingate:/var/lib/twingate \
+-e TWINGATE_NETWORK="your-network-name" \
+-e TWINGATE_ACCESS_TOKEN="your-access-token" \
+-e TWINGATE_REFRESH_TOKEN="your-refresh-token" \
+twingate/connector:latest
+```
+
+### 5.7 Connector Functionality
+
+The Twingate Connector performed the following tasks:
+
+- Established encrypted outbound tunnel to Twingate cloud
+- Eliminated need for inbound firewall exposure
+- Forwarded authenticated traffic securely to internal resources
+- Enabled application-level secure access
+
+The connector operated entirely within the private network.
+
+### 5.8 Verifying Connector Deployment
+
+Docker container status was verified:
+
+```bash
+docker ps
+```
+
+Successful output confirmed:
+
+- Connector container was running
+- Tunnel service was active
+
+Connector status was also verified from the Twingate Admin Dashboard:
+
+- Connector displayed as:
+
+```bash
+Connected
+```
+
+This confirmed successful communication between:
+
+- Ubuntu private environment
+- Twingate cloud platform
+
+### 5.9 Secure Tunnel Validation
+
+Tunnel establishment was validated by:
+
+- Confirming connector heartbeat activity in Twingate dashboard
+- Ensuring encrypted outbound communication was active
+- Verifying no inbound ports were exposed publicly
+
+Security validation confirmed:
+
+- Tunnel traffic was encrypted using TLS
+- Internal resources remained hidden from public internet
+- Access could only occur through authenticated Twingate sessions
+
+### 5.10 Security Benefits
+
+The Twingate deployment improved security by:
+
+- Eliminating traditional VPN exposure
+- Preventing direct internet access to internal systems
+- Enforcing Zero Trust access principles
+- Restricting communication to authenticated users only
+- Reducing attack surface through outbound-only connectivity
+
+
+### 5.11 Role in ZTNA Architecture
+
+The Twingate setup formed the core access-control layer of the project.
+
+Architecture flow:
+
+- User authenticates using Twingate Client
+- Request is validated through Twingate Cloud
+- Traffic is securely tunneled through Twingate Connector
+- Connector forwards traffic internally to the Nginx web server
+
+This enabled secure, identity-based access to the private web application without exposing the Ubuntu server to the public internet.
