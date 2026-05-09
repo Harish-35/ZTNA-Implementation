@@ -881,3 +881,158 @@ This completed the secure application exposure process by:
 - Enabling authenticated user access through Twingate
 
 The Ubuntu-hosted Nginx server was now securely accessible as a protected Zero Trust resource.4
+
+---
+
+##  7. Access Control & Testing
+
+### 7.1 Overview
+After configuring the protected resource within Twingate, user access control and connectivity testing were performed to validate the Zero Trust Network Access (ZTNA) implementation.
+
+This phase ensured:
+- Only authenticated users could access the application
+- Secure communication was functioning correctly
+- Direct public access to the internal server remained blocked
+
+
+### 7.2 Purpose of Access Control
+The access control configuration was implemented to:
+- Enforce identity-based authentication
+- Restrict application access to authorized users only
+- Prevent unauthorized access to internal resources
+- Validate Zero Trust security principles
+
+Unlike traditional VPN solutions, access was limited specifically to the protected application rather than the entire network.
+
+
+### 7.3 Configuring User Access in Twingate
+User access policies were configured through the Twingate Admin Console.
+
+Navigation path:
+```text
+ id="0bmj6y"
+Admin Console → Teams / Users
+```
+
+Configuration steps:
+
+- Added authorized user accounts
+- Assigned users to access groups
+- Linked the protected resource to the permitted user group
+
+Example:
+
+```text
+User Group: ZTNA-Users
+Allowed Resource: ZTNA-Web-Portal
+```
+
+This ensured only approved users could access the internal application.
+
+7.4 Installing Twingate Client
+
+The Twingate Client application was installed on the user endpoint system to establish secure access to the protected resource.
+
+Downloaded from:
+
+```text
+https://www.twingate.com/download
+```
+Supported platforms:
+
+- Windows
+- Linux
+- macOS
+
+After installation:
+
+- User authenticated using registered credentials
+- Client established secure communication with Twingate Cloud
+
+### 7.5 User Authentication Process
+
+The access workflow operated as follows:
+
+1. User launched Twingate Client
+2. User authenticated using assigned identity credentials
+3. Twingate validated:
+  - User identity
+  - Assigned access permissions
+  - Resource authorization policies
+4. Upon successful validation, secure access was granted to the protected application
+
+This enforced Zero Trust principles by verifying every access request before allowing connectivity.
+
+### 7.6 Secure Application Access Testing
+
+The protected application was accessed using the Ubuntu server’s private HTTPS address:
+
+```bash
+https://192.168.1.10
+```
+
+Validation steps:
+
+- Confirmed successful loading of the custom ZTNA portal page
+- Verified HTTPS-secured communication
+- Verified traffic routing through Twingate Connector
+- Confirmed authenticated access via Twingate Client
+
+This demonstrated successful Zero Trust-based application access.
+
+### 7.7 Direct Access Restriction Testing
+
+Additional testing was performed to ensure the application was not directly accessible without Twingate authentication.
+
+Validation performed:
+
+- Attempted access without Twingate Client connection
+- Attempted access from unauthorized devices/users
+- Verified restricted communication outside the secure tunnel
+
+Results confirmed:
+
+- Direct public access was blocked
+- Application remained inaccessible to unauthenticated users
+- Internal resource exposure was successfully prevented
+
+### 7.8 Tunnel & Connectivity Validation
+
+Secure tunnel functionality was validated by:
+
+- Confirming active Twingate Client session
+- Verifying connector activity within Twingate dashboard
+- Ensuring encrypted communication between:
+  - Client
+  - Twingate Cloud
+  - Connector
+  - Nginx server
+
+This validated end-to-end secure application delivery.
+
+### 7.9 Security Validation Results
+
+Security testing confirmed:
+
+- Identity-based access enforcement
+- Secure HTTPS communication
+- Private resource isolation
+- No direct public exposure of Ubuntu server
+- Reduced attack surface compared to traditional VPN-based access
+
+The implementation successfully aligned with Zero Trust principles:
+
+```bash
+Never Trust, Always Verify
+```
+
+### 7.10 Final Outcome
+
+The final ZTNA environment successfully demonstrated:
+
+- Secure remote application access
+- Identity-driven authorization
+- Encrypted communication through HTTPS and TLS tunnels
+- Protection of private infrastructure without public exposure
+
+The Ubuntu-hosted Nginx application was now securely accessible only to authenticated users through the Twingate Zero Trust architecture.
