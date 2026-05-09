@@ -268,7 +268,7 @@ If not installed, it was installed using:
 sudo apt install openssl -y
 ```
 
-3.3 Creating SSL Certificate and Private Key
+### 3.3 Creating SSL Certificate and Private Key
 
 Directories for storing SSL files were created:
 ```bash
@@ -425,3 +425,142 @@ Enabling HTTPS provided the following security improvements:
 - Improved alignment with Zero Trust security principles
 
 This HTTPS-enabled Nginx server later became the protected private resource within the Twingate ZTNA architecture.
+
+---
+
+##  4. Custom Web Application
+
+### 4.1 Overview
+After configuring the Nginx web server and enabling HTTPS, a custom web application page was developed to simulate a secure internal portal protected by the Zero Trust Network Access (ZTNA) environment.
+
+The application was hosted locally on the Ubuntu-based Nginx server and served as the private resource accessed through Twingate.
+
+---
+
+### 4.2 Purpose of the Custom Portal
+The custom web page was created to:
+- Simulate an internal enterprise application
+- Demonstrate secure application hosting within a private network
+- Validate HTTPS communication
+- Test Zero Trust access through Twingate
+
+The portal acted as the protected resource within the ZTNA architecture.
+
+---
+
+### 4.3 Navigating to the Web Root Directory
+The default Nginx web root directory was accessed:
+
+```bash
+cd /var/www/html
+```
+
+This directory stores the files served by the Nginx web server.
+
+### 4.4 Modifying the Default Web Page
+
+The default Nginx landing page was edited using Nano text editor:
+
+```bash
+sudo nano index.nginx-debian.html
+```
+
+The default content was replaced with a custom HTML-based portal page.
+
+### 4.5 Developing the Custom Portal Page
+
+A simple HTML application was created to represent a secure ZTNA portal.
+
+Example implementation:
+
+```bash
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZTNA Secure Portal</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #00ffcc;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 10%;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to ZTNA Secure Portal</h1>
+    <p>Protected through Zero Trust Network Access</p>
+
+</body>
+</html>
+```
+
+### 4.6 Application Features
+
+The custom portal included:
+
+- Simple user-friendly interface
+- HTTPS-secured web access
+- Internal hosting within private network
+- Simulation of enterprise-style secure application access
+
+The application was intentionally lightweight to focus on the ZTNA architecture rather than application complexity.
+
+### 4.7 Deploying the Application
+
+After saving the HTML file, the application was automatically hosted through Nginx since the file was placed inside the web root directory.
+
+The Nginx service was restarted to ensure changes were applied:
+
+```bash
+sudo systemctl restart nginx
+```
+
+### 4.8 Accessing the Web Application
+
+The hosted portal was accessed using the Ubuntu server’s private IP address:
+
+```bash
+https://192.168.1.10
+```
+
+Validation performed:
+
+- Confirmed successful loading of the custom page
+- Verified HTTPS encryption
+- Verified accessibility only within the internal network
+
+
+### 4.9 Security Considerations
+
+The custom application was hosted in a controlled internal environment with the following security measures:
+
+- HTTPS-only communication enabled
+- No direct public exposure
+- Access restricted to private network
+- Prepared for identity-based access through Twingate
+
+This ensured the web application aligned with Zero Trust principles before integrating it into the Twingate ZTNA architecture.
+
+### 4.10 Role in ZTNA Architecture
+
+The custom web application functioned as the protected internal resource within the Zero Trust environment.
+
+In later stages:
+
+- Twingate Connector securely exposed the application
+- Only authenticated users could access the portal
+- Direct public access remained blocked
+
+This completed the application layer of the ZTNA implementation.
