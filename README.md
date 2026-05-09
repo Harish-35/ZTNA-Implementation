@@ -243,3 +243,177 @@ Key security measures:
 - Reduced attack surface before external access configuration
 
 This setup formed the foundation for implementing secure Zero Trust access using Twingate in later stages of the project.
+
+
+
+##  3. HTTPS Enablement
+
+### 3.1 Overview
+To secure communication between the client and the hosted web application, HTTPS was enabled on the Nginx web server. SSL/TLS encryption was implemented using a self-signed certificate generated through OpenSSL.
+
+This ensured that all traffic between the user and the server was encrypted, aligning with Zero Trust security principles.
+
+---
+
+### 3.2 Installing OpenSSL
+OpenSSL was used to generate the SSL certificate and private key required for HTTPS configuration.
+
+Verified OpenSSL installation:
+
+```bash
+openssl version
+```
+
+If not installed, it was installed using:
+ 
+ ```bash
+sudo apt install openssl -y
+```
+
+3.3 Creating SSL Certificate and Private Key
+
+Directories for storing SSL files were created:
+```bash
+sudo mkdir -p /etc/ssl/private
+```
+
+```bash
+sudo mkdir -p /etc/ssl/certs
+```
+
+A self-signed SSL certificate and RSA private key were generated using the following command:
+
+ ```bash
+sudo openssl req -x509 -nodes -days 365 \
+```
+
+-newkey rsa:2048 \
+-keyout /etc/ssl/private/nginx-selfsigned.key \
+-out /etc/ssl/certs/nginx-selfsigned.crt
+Command Breakdown
+-x509 → Generates a self-signed certificate
+-nodes → Prevents password encryption on the private key
+-days 365 → Certificate validity period (1 year)
+rsa:2048 → Generates a 2048-bit RSA key
+-keyout → Stores the private key
+-out → Stores the SSL certificate
+
+
+### 3.4 Certificate Information Configuration
+
+During certificate generation, certificate details were configured:
+
+Example:
+
+Country Name: IN
+State: Tamil Nadu
+Locality: Chennai
+Organization Name: ZTNA Lab
+Common Name: 192.168.1.10
+
+The Common Name (CN) was set to the Ubuntu server’s private IP address used to access the application.
+
+### 3.5 Configuring Nginx for HTTPS
+
+The Nginx configuration file was modified to enable SSL/TLS encryption and enforce HTTPS-only access.
+
+Opened the Nginx configuration file:
+
+```bash
+sudo nano /etc/nginx/sites-available/default
+```
+
+Added HTTPS server configuration:
+
+```bash
+server {
+    listen 80;
+    server_name _;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name _;
+
+    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+    root /var/www/html;
+    index index.nginx-debian.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+### 3.6 Explanation of Configuration
+
+Port 80 handles HTTP requests
+
+HTTP traffic is automatically redirected to HTTPS using:
+
+return 301 https://$host$request_uri;
+Port 443 handles encrypted HTTPS traffic
+SSL certificate and private key paths were defined in the configuration
+Nginx serves the custom ZTNA portal securely over HTTPS
+
+
+### 3.7 Testing Nginx Configuration
+
+The Nginx configuration syntax was validated before restarting the service:
+
+```bash
+sudo nginx -t
+```
+
+Successful output:
+
+syntax is ok
+test is successful
+
+Nginx was then restarted:
+
+sudo systemctl restart nginx
+3.8 Firewall Configuration for HTTPS
+
+HTTPS traffic was allowed through the firewall:
+
+sudo ufw allow 'Nginx Full'
+sudo ufw reload
+
+This enabled:
+
+HTTP (Port 80)
+HTTPS (Port 443)
+
+for internal communication.
+
+3.9 HTTPS Validation
+
+The secure web application was accessed through a browser using:
+
+```bash
+https://192.168.1.10
+```
+
+Validation performed:
+
+Verified successful HTTPS connection
+Confirmed browser displayed encrypted connection
+Confirmed automatic redirection from HTTP to HTTPS
+
+Since a self-signed certificate was used, the browser displayed a security warning, which was expected in a lab environment.
+
+3.10 Security Benefits
+
+Enabling HTTPS provided the following security improvements:
+
+Encrypted communication between client and server
+Protection against packet sniffing and man-in-the-middle attacks
+Secure delivery of the hosted web application
+Improved alignment with Zero Trust security principles
+
+This HTTPS-enabled Nginx server later became the protected private resource within the Twingate ZTNA architecture.
