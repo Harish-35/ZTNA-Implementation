@@ -435,7 +435,6 @@ After configuring the Nginx web server and enabling HTTPS, a custom web applicat
 
 The application was hosted locally on the Ubuntu-based Nginx server and served as the private resource accessed through Twingate.
 
----
 
 ### 4.2 Purpose of the Custom Portal
 The custom web page was created to:
@@ -446,7 +445,6 @@ The custom web page was created to:
 
 The portal acted as the protected resource within the ZTNA architecture.
 
----
 
 ### 4.3 Navigating to the Web Root Directory
 The default Nginx web root directory was accessed:
@@ -801,11 +799,11 @@ A new resource entry was created for the Ubuntu-hosted Nginx application.
 
 Example configuration:
 
-### Field	                  Value
-Resource Name	------>      ZTNA-Web-Portal
-Address	      ------>      192.168.1.10
-Protocol	    ------>      HTTPS
-Port	        ------>      443
+### Field	                 Value
+Resource Name	------>      ZTNA-Web-Portal <br>
+Address	      ------>      192.168.1.10    <br>
+Protocol	    ------>      HTTPS           <br>
+Port	        ------>      443             <br>
 
 Configuration details:
 
