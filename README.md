@@ -893,6 +893,7 @@ The Ubuntu-hosted Nginx server was now securely accessible as a protected Zero T
 
 <img width="1920" height="982" alt="P 6" src="https://github.com/user-attachments/assets/52cd3d28-9fbd-4f52-bda2-0d930d35b2cf" />
 
+
 ---
 
 ##  7. Access Control & Testing
@@ -951,7 +952,7 @@ https://www.twingate.com/download
 ```
 Supported platforms:
 
-- Windows
+- Windows 
 - Linux
 - macOS
 
