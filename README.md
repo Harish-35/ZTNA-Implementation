@@ -863,7 +863,7 @@ This completed the secure application exposure process by:
 - Linking the application to the secure connector
 - Enabling authenticated user access through Twingate
 
-The Ubuntu-hosted Nginx server was now securely accessible as a protected Zero Trust resource.4
+The Ubuntu-hosted Nginx server was now securely accessible as a protected Zero Trust resource.
 
 ---
 
