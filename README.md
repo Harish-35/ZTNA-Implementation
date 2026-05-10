@@ -99,6 +99,11 @@ sudo ufw allow OpenSSH
 - Confirmed system readiness for hosting applications
 - Verified stable network, updated packages, and secure configuration
 
+### 1 Proof Image
+
+<img width="1920" height="1080" alt="p 1" src="https://github.com/user-attachments/assets/b69a1aa7-05e4-4093-9dbe-c7f1a083c2a2" />
+
+
 ---
 
 ##  2. Nginx Installation & Configuration
