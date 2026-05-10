@@ -563,6 +563,11 @@ In later stages:
 
 This completed the application layer of the ZTNA implementation.
 
+### 4 Proof Image
+
+<img width="1112" height="763" alt="P 4" src="https://github.com/user-attachments/assets/0f9c3269-b40b-4b1b-b8a7-d4fb593134d7" />
+
+
 ---
 
 ##  5. Twingate Setup
