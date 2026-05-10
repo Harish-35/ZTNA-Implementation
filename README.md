@@ -296,23 +296,9 @@ Command Breakdown
 - -out → Stores the SSL certificate
 
 
-### 3.4 Certificate Information Configuration
-
-During certificate generation, certificate details were configured:
-
-Example:
-
-```bash
-Country Name: IN
-State: Tamil Nadu
-Locality: Chennai
-Organization Name: ZTNA Lab
-Common Name: 192.168.1.10
-```
-
 The Common Name (CN) was set to the Ubuntu server’s private IP address used to access the application.
 
-### 3.5 Configuring Nginx for HTTPS
+### 3.4 Configuring Nginx for HTTPS
 
 The Nginx configuration file was modified to enable SSL/TLS encryption and enforce HTTPS-only access.
 
@@ -348,7 +334,7 @@ server {
 }
 ```
 
-### 3.6 Explanation of Configuration
+### 3.5 Explanation of Configuration
 
 - Port 80 handles HTTP requests
 - HTTP traffic is automatically redirected to HTTPS using:
@@ -362,7 +348,7 @@ return 301 https://$host$request_uri;
 - Nginx serves the custom ZTNA portal securely over HTTPS
 
 
-### 3.7 Testing Nginx Configuration
+### 3.6 Testing Nginx Configuration
 
 The Nginx configuration syntax was validated before restarting the service:
 
@@ -383,7 +369,7 @@ Nginx was then restarted:
 sudo systemctl restart nginx
 ```
 
-### 3.8 Firewall Configuration for HTTPS
+### 3.7 Firewall Configuration for HTTPS
 
 HTTPS traffic was allowed through the firewall:
 
@@ -399,7 +385,7 @@ This enabled:
 
 for internal communication.
 
-### 3.9 HTTPS Validation
+### 3.8 HTTPS Validation
 
 The secure web application was accessed through a browser using:
 
@@ -415,7 +401,7 @@ Validation performed:
 
 Since a self-signed certificate was used, the browser displayed a security warning, which was expected in a lab environment.
 
-### 3.10 Security Benefits
+### 3.9 Security Benefits
 
 Enabling HTTPS provided the following security improvements:
 
@@ -575,8 +561,6 @@ Twingate was used to:
 - Securely expose internal resources without public internet exposure
 - Establish encrypted outbound tunnels using Twingate Connector
 - Enforce identity-based access control
-
----
 
 ### 5.2 Creating a Twingate Account
 A Twingate administrative account was created using the official platform:
@@ -800,13 +784,12 @@ A new resource entry was created for the Ubuntu-hosted Nginx application.
 Example configuration:
 
 <p>
-<div>
+
 Field	                 Value
-Resource Name	------>      ZTNA-Web-Portal <br>
-Address	      ------>      192.168.1.10    <br>
-Protocol	    ------>      HTTPS           <br>
-Port	        ------>      443             <br>
-</div>
+- **Resource Name**	------>      ZTNA-Web-Portal <br>
+- **Address**	      ------>      192.168.1.10    <br>
+- **Protocol**	    ------>      HTTPS           <br>
+- **Port**	        ------>      443             <br>
 </p>
 Configuration details:
 
