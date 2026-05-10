@@ -1048,3 +1048,8 @@ The final ZTNA environment successfully demonstrated:
 - Protection of private infrastructure without public exposure
 
 The Ubuntu-hosted Nginx application was now securely accessible only to authenticated users through the Twingate Zero Trust architecture.
+
+
+### 7 Proof Image
+
+<img width="1920" height="983" alt="P 7" src="https://github.com/user-attachments/assets/678c26e1-b8dc-4f32-8289-40061243c42d" />
