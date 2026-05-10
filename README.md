@@ -785,7 +785,7 @@ Example configuration:
 
 <p>
 
-Field	                 Value
+Field	       &          Value
 - **Resource Name**	------>      ZTNA-Web-Portal <br>
 - **Address**	      ------>      192.168.1.10    <br>
 - **Protocol**	    ------>      HTTPS           <br>
