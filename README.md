@@ -744,6 +744,11 @@ Architecture flow:
 
 This enabled secure, identity-based access to the private web application without exposing the Ubuntu server to the public internet.
 
+### 5 Proof Image
+
+<img width="1920" height="989" alt="P 5" src="https://github.com/user-attachments/assets/f6669723-749b-43d9-8e7d-b04a8c269828" />
+
+
 ---
 
 ##  6. Resource Configuration
@@ -883,6 +888,10 @@ This completed the secure application exposure process by:
 - Enabling authenticated user access through Twingate
 
 The Ubuntu-hosted Nginx server was now securely accessible as a protected Zero Trust resource.
+
+### 6 Proof Image
+
+<img width="1920" height="982" alt="P 6" src="https://github.com/user-attachments/assets/52cd3d28-9fbd-4f52-bda2-0d930d35b2cf" />
 
 ---
 
