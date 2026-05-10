@@ -248,7 +248,7 @@ Key security measures:
 
 This setup formed the foundation for implementing secure Zero Trust access using Twingate in later stages of the project.
 
-### 1 Proof Image
+### 2 Proof Image
 
 <img width="1107" height="763" alt="P 2" src="https://github.com/user-attachments/assets/9a4ee90a-1736-4818-ac51-0f976af5fd76" />
 
@@ -421,6 +421,11 @@ Enabling HTTPS provided the following security improvements:
 - Improved alignment with Zero Trust security principles
 
 This HTTPS-enabled Nginx server later became the protected private resource within the Twingate ZTNA architecture.
+
+### 3 Proof Image
+
+![Uploading p 3.jpeg…]()
+
 
 ---
 
