@@ -424,8 +424,7 @@ This HTTPS-enabled Nginx server later became the protected private resource with
 
 ### 3 Proof Image
 
-![Uploading p 3.jpeg…]()
-
+<img width="1107" height="608" alt="p 3" src="https://github.com/user-attachments/assets/6f66a8e3-9423-4303-b632-f79e1edd46c1" />
 
 ---
 
